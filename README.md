@@ -3,28 +3,30 @@
 ## Overview
 This project focuses on image classification using a pre-trained ResNet50 model with TensorFlow/Keras. The task is to classify images into one of four categories: Benign, [Malignant] Pre-B, [Malignant] Pro-B, [Malignant] early Pre-B.
 
-## Model Architecture
-We utilized the ResNet50 architecture as the base model and added a few layers on top for fine-tuning. The final layer is a Dense layer with a softmax activation function to output probabilities for each class.
 
-Input
-   |
-[ Conv2D, BatchNorm, ReLU ]
-   | 
-[ Conv2D, BatchNorm, ReLU ]
-   |
-[ MaxPooling ]
-   |
-[ Residual Block ]
-   |-------------------------[ Identity Block ]
-   |                         |-----------------[ Identity Block ]
-   |                         |
-   |                         |-----------------[ Identity Block ]
-   |
-[ Global Average Pooling ]
-   |
-[ Fully Connected Layer ]
-   |
-Output (Class Predictions)
+### Resnet Blocks structure:
+
+The images for the architecture are obtained from this [blog](https://towardsdatascience.com/understanding-and-coding-a-resnet-in-keras-446d7ff84d33).
+
+1. Identity Block:
+
+<img src="images/identity_block.png" style="width:800px;height:300px;">
+
+2. Convolutional Block:
+
+<img src="images/convolutional_block.png" style="width:800px;height:300px;">
+
+## Output Accuracy:
+
+The model was trained using Google colab platform for 20 epochs. The model was trained on the signs dataset.The following is the output,
+
+120/120 [==============================] - 1s 6ms/sample - loss: 0.2791 - accuracy: 0.9250
+Loss = 0.2790559738874435
+Test Accuracy = 0.925
+
+The model has an accuracy of 92.5%
+
+The model structure can be viewed [here](https://github.com/Sudhandar/ResNet-50-model/tree/master/output). 
 
 
 ## training
