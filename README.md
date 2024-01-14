@@ -19,6 +19,12 @@ x = BatchNormalization()(x)
 predictions = Dense(4, activation="softmax")(x)
 model = Model(inputs=base_model.input, outputs=predictions)
 
+
+
+
+## Training
+We trained the model using a categorical cross-entropy loss function and the Adam optimizer with a custom learning rate schedule. The model was trained for 2 epochs on the provided data.
+
 # Training Configuration
 initial_learning_rate = 0.0001
 lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
@@ -40,6 +46,18 @@ history = model.fit(
     workers=2,
     callbacks=[cp_callback]
 )
+
+## Checkpoints
+Model weights are saved using a callback during training. The checkpoints are stored in the '/content/drive/MyDrive/checkpoints' directory.
+
+## Categories
+
+The model is trained to classify images into the following categories:
+
+Benign
+[Malignant] Pre-B
+[Malignant] Pro-B
+[Malignant] early Pre-B
 
 
 Feel free to modify the content based on your specific project requirements and information.
