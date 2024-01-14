@@ -32,7 +32,6 @@ The dependent packages for MAP-NN are as follows:
 * skimage
 * keras
 * pandas
-* 
 
 ## Usage
 ### prepare the training data
