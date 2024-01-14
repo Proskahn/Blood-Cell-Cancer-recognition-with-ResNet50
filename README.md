@@ -31,12 +31,12 @@ The dependent packages for MAP-NN are as follows:
 * scipy
 * skimage
 * keras
-* 
+* pandas
 * 
 
 ## Usage
 ### prepare the training data
-The data sould be divided into test set and training set, each with 4 categories, Benign, Malignant Pre-B, Malignant Pro-B, Malignant early Pre-B.
+The data sould be divided into test_set and training_set, each with 4 categories, Benign, Malignant Pre-B, Malignant Pro-B, Malignant early Pre-B.
 
 ### training
 We trained the model using a categorical cross-entropy loss function and the Adam optimizer with a custom learning rate schedule. The model was trained for 2 epochs on the provided data.
@@ -47,16 +47,12 @@ To avoid the training interruption(which happens frequently in google colab trai
 
 First call google drive 
 
-```python from google.colab import drive
-drive.mount('/content/drive')```
-# Model Architecture
-
-Then we save all the processed data to google drive, for example:
-
-```python checkpoint_path = '/content/drive/MyDrive/checkpoints'
-checkpoint_dir = os.path.dirname(checkpoint_path)
-
-# Create a callback that saves the model's weights
+```
+python from google.colab import drive
+drive.mount('/content/drive')
+```
+### Create a callback that saves the model's weights
+```
 cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  save_weights_only=True,
                                                  verbose=1)
@@ -67,6 +63,20 @@ history =         model.fit(x=train_gen,
                             workers=2,
                             callbacks=[cp_callback]
                             )```
+```
+### Run the model
+Run the classifiction_ResNet50.py to train and test the model.
+
+
+
+## Model Architecture
+
+Then we save all the processed data to google drive, for example:
+
+```
+python checkpoint_path = '/content/drive/MyDrive/checkpoints'
+checkpoint_dir = os.path.dirname(checkpoint_path)
+```
 
 
 Feel free to modify the content based on your specific project requirements and information.
