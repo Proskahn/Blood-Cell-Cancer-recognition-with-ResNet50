@@ -69,14 +69,4 @@ Run the classifiction_ResNet50.py to train and test the model.
 
 
 
-## Model Architecture
-
-Then we save all the processed data to google drive, for example:
-
-```
-python checkpoint_path = '/content/drive/MyDrive/checkpoints'
-checkpoint_dir = os.path.dirname(checkpoint_path)
-```
-
-
 Feel free to modify the content based on your specific project requirements and information.
