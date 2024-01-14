@@ -6,6 +6,36 @@ This project focuses on image classification using a pre-trained ResNet50 model 
 ## Model Architecture
 We utilized the ResNet50 architecture as the base model and added a few layers on top for fine-tuning. The final layer is a Dense layer with a softmax activation function to output probabilities for each class.
 
+Input
+   |
+[ Conv2D, BatchNorm, ReLU ]
+   | 
+[ Conv2D, BatchNorm, ReLU ]
+   |
+[ MaxPooling ]
+   |
+[ Residual Block ]
+   |-------------------------[ Identity Block ]
+   |                         |-----------------[ Identity Block ]
+   |                         |
+   |                         |-----------------[ Identity Block ]
+   |
+[ Global Average Pooling ]
+   |
+[ Fully Connected Layer ]
+   |
+Output (Class Predictions)
+
+
+## training
+We trained the model using a categorical cross-entropy loss function and the Adam optimizer with a custom learning rate schedule. The model was trained for 2 epochs on the provided data.
+
+## Model Architecture
+We utilized the ResNet50 architecture as the base model and added a few layers on top for fine-tuning. The final layer is a Dense layer with a softmax activation function to output probabilities for each class.
+
+## Save Checkpoints to Google drive 
+
+
 ```python
 # Model Architecture
 from tensorflow.keras.applications import ResNet50
@@ -22,8 +52,6 @@ model = Model(inputs=base_model.input, outputs=predictions)
 
 
 
-## Training
-We trained the model using a categorical cross-entropy loss function and the Adam optimizer with a custom learning rate schedule. The model was trained for 2 epochs on the provided data.
 
 # Training Configuration
 initial_learning_rate = 0.0001
@@ -47,8 +75,7 @@ history = model.fit(
     callbacks=[cp_callback]
 )
 
-## Checkpoints
-Model weights are saved using a callback during training. The checkpoints are stored in the '/content/drive/MyDrive/checkpoints' directory.
+
 
 ## Categories
 
