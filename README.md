@@ -19,7 +19,7 @@ The images for the architecture are obtained from this [blog](https://towardsdat
 <img src="images/convolutional_block.png" style="width:800px;height:300px;">
 
 ## Prerequisites
-The dependent packages for MAP-NN are as follows:
+The dependent packages for our task are as follows:
 
 * Python 3.9.12
 * TensorFlow 2.15.0
